@@ -7,8 +7,8 @@ case class Downloads(fileId: Long, userId: Long, ds: String, numberOfDownloads: 
 case class Access(fileId: Long, userId: Long, ds: String, numberofUploads: Int, numberOfDownloads: Int)
 
 // contains download and upload events for the past 4 days. 
-val uploads = sc.textFile("file:///Users/srao/Box Sync/IBU_revive/airpal/uploads.csv")
-val downloads = sc.textFile("file:///Users/srao/Box Sync/IBU_revive/airpal/downloads.csv")
+val uploads = sc.textFile("file:///home/sgrao/SparkSQLFrecency/data/uploads.csv")
+val downloads = sc.textFile("file:////home/sgrao/SparkSQLFrencency/data/downloads.csv")
 
 // split by , take out ending and beginning quotes " " and then the first column contains the column names, take those out
 val cleaned_uploads = uploads.map(s => s.split(",").map(e=> e.replaceAll("^\"|\"$",""))).filter(e => e(0)!="file_id")
